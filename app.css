@@ -32,7 +32,7 @@ main {
 }
 
 main figure {
-  background-color: hsl(var(--hue), 93%, 57%);
+  background-color: hsl(var(--hue), 87%, 80%);
   margin: 0;
   overflow: hidden;
   position: relative;
@@ -40,12 +40,13 @@ main figure {
 }
 
 main figure::before {
-  background-color: hsl(calc(var(--hue) + 180), 100%, 22%);
+  background-color: hsl(var(--hue), 100%, 10%);
   bottom: 0;
   content: "";
   height: 100%;
   left: 0;
   mix-blend-mode: lighten;
+  pointer-events: none;
   position: absolute;
   right: 0;
   top: 0;
@@ -53,9 +54,9 @@ main figure::before {
   z-index: 1;
 }
 
-figure img {
+main figure img {
   display: block;
-  filter: grayscale(100%) contrast(1.5);
+  filter: grayscale(100%) contrast(1) brightness(1);
   height: var(--di);
   mix-blend-mode: multiply;
   object-fit: cover;
@@ -66,15 +67,19 @@ figure img {
   width: var(--di);
 }
 
-figure:hover img {
+main figure:hover img {
   filter: none;
   mix-blend-mode: normal;
 }
 
-figure.loaded img {
+main figure:hover::before {
+  display: none;
+}
+
+main figure.loaded img {
   opacity: 1;
 }
 
-figure figcaption {
+main figure figcaption {
   display: none;
 }
